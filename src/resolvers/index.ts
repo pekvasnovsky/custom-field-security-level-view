@@ -18,7 +18,7 @@ export type ReturnValueFromJira = ErrorOrValue<JiraIssue>;
 
 class HelperMethods {
   public static async getDataFromJira(
-    url: Route,
+    url: Route
   ): Promise<ReturnValueFromJira> {
     const response = await api.asUser().requestJira(url);
 
@@ -27,12 +27,13 @@ class HelperMethods {
     } else {
       return ErrorOrValue.createFromError(
         `Request failed with code ${response.status}`,
-        `Request failed with code '${response.status}', body: '${await response.text()}'`,
+        `Request failed with code '${response.status}', body: '${await response.text()}'`
       );
     }
   }
 
   public static composeGetIssueUrlFieldSecurityUrl(issueKey: string) {
+    // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-get
     return route`/rest/api/3/issue/${issueKey}?fields=security`;
   }
 }
@@ -63,7 +64,7 @@ resolver.define(
     } else {
       return ErrorOrValue.createFromErrorOther(response);
     }
-  },
+  }
 );
 
 export const handler = resolver.getDefinitions();

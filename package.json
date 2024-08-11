@@ -1,7 +1,7 @@
 {
   "name": "custom-field-security-level-view",
   "description": "Jira cloud custom field for showing security level next to other fields on view screen as read-only. On edit screen nothing is shown.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "build": "npm clean-install --legacy-peer-deps && npm run build:no-clean-no-install",
@@ -22,6 +22,9 @@
     "forge-staging:build-deploy": "npm run build:no-clean && npm run forge-staging:deploy",
     "forge-staging:deploy": "forge deploy --environment staging",
     "forge-staging:install": "forge install --environment staging --product Jira",
+    "forge-production:build-deploy": "npm run build:no-clean && npm run forge-production:deploy",
+    "forge-production:deploy": "forge deploy --environment production",
+    "forge-production:install": "forge install --environment production --product Jira",
     "preinstall": "npx typesync"
   },
   "engines": {

@@ -1,5 +1,5 @@
 app:
-  id: ari:cloud:ecosystem::app/601a830e-bc3a-4470-a78f-ea487d55afed
+  id: ari:cloud:ecosystem::app/1ecc9440-7945-4832-ba86-57e53116a8e6
   runtime:
     name: nodejs18.x
 modules:

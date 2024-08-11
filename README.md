@@ -12,3 +12,5 @@ This project is a atlassian Forge app which provides a custom field called "Secu
 6. Run `npm run forge-development:install` to get the app installed
 
 For full redeploy use `npm run forge-development:build-redeploy` (or `npm run forge-development:build-deploy` might be enough in some cases)
+
+It needs permissions for getting the issue security value: https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-get
