@@ -3,18 +3,14 @@
   "description": "Jira cloud custom field for showing security level next to other fields on view screen as read-only. On edit screen nothing is shown.",
   "version": "1.0.0",
   "private": true,
-  "config": {
-    "appDisplayName": "Custom field - Security level (view)",
-    "pathToSrc": "./src/**/*"
-  },
   "scripts": {
     "build": "npm clean-install --legacy-peer-deps && npm run build:no-clean-no-install",
     "build:no-clean": "npm install --legacy-peer-deps && npm run build:no-clean-no-install",
     "build:no-clean-no-install": "npm run lint",
     "lint": "npm-run-all format:* && npm-run-all lint:*",
-    "lint:eslint": "eslint %npm_package_config_pathToSrc%",
-    "format:prettier": "prettier %npm_package_config_pathToSrc% --write",
-    "forge-common:register": "forge register \"%npm_package_config_appDisplayName%\"",
+    "lint:eslint": "eslint ./src/**/*",
+    "format:prettier": "prettier ./src/**/* --write",
+    "forge-common:register": "forge register \"Custom field - Security level (view)\"",
     "forge-development:build-deploy": "npm run build:no-clean && npm run forge-development:deploy",
     "forge-development:build-redeploy": "npm run forge-development:build-deploy && npm run forge-development:install-upgrade",
     "forge-development:logs": "forge logs --grouped",
