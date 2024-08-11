@@ -14,7 +14,7 @@ jobs:
       fail-fast: true
       matrix:
         version:
-          - 18
+          - 20 #https://github.blog/changelog/2024-03-07-github-actions-all-actions-will-run-on-node20-instead-of-node16-by-default/
     steps:
       - name: Checkout
         uses: actions/checkout@v3
