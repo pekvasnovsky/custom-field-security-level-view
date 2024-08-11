@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  ci:
+    name: Lint on Node ${{ matrix.version }}
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: true
+      matrix:
+        version:
+          - 18
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+
+      - name: Install Packages
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+# Cancel running workflows for the same branch when a new one is started.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true

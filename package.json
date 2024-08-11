@@ -1,0 +1,56 @@
+{
+  "name": "custom-field-security-level-view",
+  "description": "Jira cloud custom field for showing security level next to other fields on view screen as read-only. On edit screen nothing is shown.",
+  "version": "1.0.0",
+  "private": true,
+  "config": {
+    "appDisplayName": "Custom field - Security level (view)",
+    "pathToSrc": "./src/**/*"
+  },
+  "scripts": {
+    "build": "npm clean-install --legacy-peer-deps && npm run build:no-clean-no-install",
+    "build:no-clean": "npm install --legacy-peer-deps && npm run build:no-clean-no-install",
+    "build:no-clean-no-install": "npm run lint",
+    "lint": "npm-run-all format:* && npm-run-all lint:*",
+    "lint:eslint": "eslint %npm_package_config_pathToSrc%",
+    "format:prettier": "prettier %npm_package_config_pathToSrc% --write",
+    "forge-common:register": "forge register \"%npm_package_config_appDisplayName%\"",
+    "forge-development:build-deploy": "npm run build:no-clean && npm run forge-development:deploy",
+    "forge-development:build-redeploy": "npm run forge-development:build-deploy && npm run forge-development:install-upgrade",
+    "forge-development:logs": "forge logs --grouped",
+    "forge-development:tunnel-debug": "forge tunnel --debug",
+    "forge-development:deploy": "forge deploy",
+    "forge-development:deploy-verbose": "forge deploy --verbose",
+    "forge-development:install": "forge install --product Jira --environment development",
+    "forge-development:install-upgrade": "forge install --product Jira --environment development --upgrade",
+    "forge-staging:build-deploy": "npm run build:no-clean && npm run forge-staging:deploy",
+    "forge-staging:deploy": "forge deploy --environment staging",
+    "forge-staging:install": "forge install --environment staging --product Jira",
+    "preinstall": "npx typesync"
+  },
+  "engines": {
+    "node": ">=18.19.43"
+  },
+  "devDependencies": {
+    "@types/eslint": "~9.6.0",
+    "@types/eslint-config-prettier": "~6.11.3",
+    "@types/node": "^18.19.44",
+    "@types/react": "~18.2.79",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
+    "prettier-eslint": "^16.3.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@forge/api": "3.9.0",
+    "@forge/bridge": "3.5.0",
+    "@forge/react": "10.5.1",
+    "@forge/resolver": "1.5.38",
+    "react": "~18.2.0"
+  }
+}
